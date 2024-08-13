@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
           const Column(
             children: [
               Padding(
-                padding: EdgeInsets.only(left: 20),
+                padding: EdgeInsets.only(left:0),
                 child: Text(
                   'category',
                   style: TextStyle(
@@ -95,7 +95,7 @@ class HomePage extends StatelessWidget {
             padding: const EdgeInsets.all(12),
             child: SvgPicture.asset('assets/icons/search.svg'),
           ),
-          suffixIcon: SizedBox(
+          suffixIcon: Container(
             width: 100,
             child: IntrinsicHeight(
               child: Row(
