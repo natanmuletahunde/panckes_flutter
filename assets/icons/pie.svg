@@ -1,0 +1,6 @@
+<svg class="w-32 h-32 text-amber-500" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2Z" class="fill-amber-200" />
+  <path d="M12 18C10.9 18 10 17.1 10 16C10 14.9 10.9 14 12 14C13.1 14 14 14.9 14 16C14 17.1 13.1 18 12 18Z" class="fill-amber-500" />
+  <path d="M8 12V10H16V12H8Z" class="fill-amber-500" />
+  <path d="M8 8V6H16V8H8Z" class="fill-amber-500" />
+</svg>
