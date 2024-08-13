@@ -95,7 +95,7 @@ class HomePage extends StatelessWidget {
             padding: const EdgeInsets.all(12),
             child: SvgPicture.asset('assets/icons/search.svg'),
           ),
-          suffixIcon: Container(
+          suffixIcon: SizedBox(
             width: 100,
             child: IntrinsicHeight(
               child: Row(
