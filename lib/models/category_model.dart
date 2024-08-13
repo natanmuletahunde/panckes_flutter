@@ -4,6 +4,7 @@ class CategoryModel {
   final String name;
   final String iconPath;
   final Color boxColor;
+  String _description = '';
 
   CategoryModel({
     required this.name,
@@ -11,8 +12,14 @@ class CategoryModel {
     required this.boxColor,
   });
 
+  String get description => _description;
+
+  set description(String value) {
+    _description = value;
+  }
+
   static List<CategoryModel> getCategories() {
-    List<CategoryModel> categories = [
+    return [
       CategoryModel(
         name: 'Salad',
         iconPath: 'assets/icons/salad.svg',
@@ -29,7 +36,5 @@ class CategoryModel {
         boxColor: const Color(0xff92A3FD),
       ),
     ];
-
-    return categories;
   }
 }

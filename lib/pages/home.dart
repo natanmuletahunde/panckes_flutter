@@ -22,6 +22,10 @@ class _HomePageState extends State<HomePage> {
 
   void _getCategories() {
     categories = CategoryModel.getCategories();
+    // Add descriptions for the three pancake category items
+    categories[0].description = '*_A classic stack of fluffy pancakes topped with maple syrup and butter._*';
+    categories[1].description = '*_Blueberry pancakes made with fresh, juicy blueberries._*';
+    categories[2].description = '*_Banana pancakes with a hint of cinnamon and a drizzle of honey._*';
   }
 
   @override
@@ -170,16 +174,28 @@ class _HomePageState extends State<HomePage> {
             ),
             child: Padding(
               padding: const EdgeInsets.all(20),
-              child: SvgPicture.asset(category.iconPath),
+              child: SvgPicture.asset(
+                category.iconPath,
+                color: Colors.white, // Change the color of the icon to white
+              ),
             ),
           ),
           const SizedBox(height: 10),
           Text(
             category.name,
             style: const TextStyle(
-              color: Colors.black,
+              color: Colors.white,
               fontSize: 14,
               fontWeight: FontWeight.w500,
+            ),
+          ),
+          const SizedBox(height: 5),
+          Text(
+            category.description ?? '', // Display the description if available
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 12,
+              fontStyle: FontStyle.italic, // Use italic text style
             ),
           ),
         ],
