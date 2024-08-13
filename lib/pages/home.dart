@@ -22,10 +22,6 @@ class _HomePageState extends State<HomePage> {
 
   void _getCategories() {
     categories = CategoryModel.getCategories();
-    // Add descriptions for the three pancake category items
-    categories[0].description = '*_A classic stack of fluffy pancakes topped with maple syrup and butter._*';
-    categories[1].description = '*_Blueberry pancakes made with fresh, juicy blueberries._*';
-    categories[2].description = '*_Banana pancakes with a hint of cinnamon and a drizzle of honey._*';
   }
 
   @override
@@ -60,6 +56,18 @@ class _HomePageState extends State<HomePage> {
                     itemBuilder: (context, index) {
                       return _categoryItem(categories[index]);
                     },
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Text(
+                             'Indulge in our delectable breakfast menu and kickstart your day with a nutritious and satisfying meal. From fluffy pancakes to savory omelets weve got something to tantalize your taste buds and fuel your morning.',
+                    style: TextStyle(
+                      color: Colors.grey[600],
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                 ),
               ],
@@ -174,10 +182,7 @@ class _HomePageState extends State<HomePage> {
             ),
             child: Padding(
               padding: const EdgeInsets.all(20),
-              child: SvgPicture.asset(
-                category.iconPath,
-                color: Colors.white, // Change the color of the icon to white
-              ),
+              child: SvgPicture.asset(category.iconPath),
             ),
           ),
           const SizedBox(height: 10),
@@ -187,15 +192,6 @@ class _HomePageState extends State<HomePage> {
               color: Colors.white,
               fontSize: 14,
               fontWeight: FontWeight.w500,
-            ),
-          ),
-          const SizedBox(height: 5),
-          Text(
-            category.description ?? '', // Display the description if available
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 12,
-              fontStyle: FontStyle.italic, // Use italic text style
             ),
           ),
         ],
