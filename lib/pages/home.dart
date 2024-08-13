@@ -2,12 +2,26 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:small_flutter_project/models/category_model.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   HomePage({super.key});
-  List<CategoryModel>categories=[];
-  void _getCategories(){
-      
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  List<CategoryModel> categories = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _getCategories();
+  }
+
+  void _getCategories() {
+    categories = CategoryModel.getCategories();
   }
 
   @override
@@ -25,7 +39,7 @@ class HomePage extends StatelessWidget {
                 const Padding(
                   padding: EdgeInsets.only(left: 20),
                   child: Text(
-                    'category',
+                    'Category',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 18,
@@ -33,16 +47,17 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height:20),
-                   Container(
-                    height: 150,
-                    color: Colors.green,
-                    child: ListView.builder(itemBuilder:
-                    (context, index){
-                      return Container();
-                    },),
+                const SizedBox(height: 20),
+                SizedBox(
+                  height: 150,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: categories.length,
+                    itemBuilder: (context, index) {
+                      return _categoryItem(categories[index]);
+                    },
                   ),
-                
+                ),
               ],
             ),
           )
@@ -137,6 +152,37 @@ class HomePage extends StatelessWidget {
             borderSide: BorderSide.none,
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _categoryItem(CategoryModel category) {
+    return Container(
+      margin: const EdgeInsets.only(left: 20),
+      child: Column(
+        children: [
+          Container(
+            width: 80,
+            height: 80,
+            decoration: BoxDecoration(
+              color: category.boxColor,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: SvgPicture.asset(category.iconPath),
+            ),
+          ),
+          const SizedBox(height: 10),
+          Text(
+            category.name,
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ],
       ),
     );
   }

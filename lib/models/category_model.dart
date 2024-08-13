@@ -1,5 +1,3 @@
-import 'dart:js_interop';
-
 import 'package:flutter/material.dart';
 
 class CategoryModel {
@@ -14,31 +12,24 @@ class CategoryModel {
   });
 
   static List<CategoryModel> getCategories() {
-    List<CategoryModel> categories = [];
-   
-      categories.add(
+    List<CategoryModel> categories = [
       CategoryModel(
         name: 'Salad',
         iconPath: 'assets/icons/salad.svg',
-        boxColor: const Color(0xff92A3FD), // Green color
+        boxColor: const Color(0xff92A3FD),
       ),
-      );
-      // Add more categories here
-      categories.add( CategoryModel(
-        name: 'cake',
+      CategoryModel(
+        name: 'Cake',
         iconPath: 'assets/icons/cake.svg',
-        boxColor: const Color(0xffC58BF2), // Green color
-      ),);
-     
-      // Add more categories here
-    
-     categories.add( CategoryModel(
-        name: 'pie',
+        boxColor: const Color(0xffC58BF2),
+      ),
+      CategoryModel(
+        name: 'Pie',
         iconPath: 'assets/icons/pie.svg',
-        boxColor: const Color(0xff92A3FD), // Green color
-      ),);
-     
-      // Add more categories here
-  
+        boxColor: const Color(0xff92A3FD),
+      ),
+    ];
+
+    return categories;
   }
 }
