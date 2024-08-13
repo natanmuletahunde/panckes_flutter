@@ -33,21 +33,24 @@ class HomePage extends StatelessWidget {
                   padding: const EdgeInsets.all(12),
                   child: SvgPicture.asset('assets/icons/search.svg'),
                 ),
-                suffixIcon:IntrinsicHeight(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      const VerticalDivider(
-                        color:Colors.black,
-                        indent: 10,
-                        endIndent: 10,
-                        thickness: 0.4,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(12),
-                        child: SvgPicture.asset('assets/icons/filter.svg'),
-                      ),
-                    ],
+                suffixIcon:Container(
+                  width: 100,
+                  child: IntrinsicHeight(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        const VerticalDivider(
+                          color:Colors.black,
+                          indent: 10,
+                          endIndent: 10,
+                          thickness: 0.4,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(12),
+                          child: SvgPicture.asset('assets/icons/filter.svg'),
+                        ),
+                      ],
+                    ),
                   ),
                 ) ,
                 border: OutlineInputBorder(
